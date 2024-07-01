@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Tarefa</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            .card-body {
+                padding: 1.25rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Editar Tarefa</h2>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a th:href="@{/usuario/tarefa/listar}" class="btn btn-primary">Voltar</a>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form th:action="@{/usuario/tarefa/editar}" method="post">
+                                <input type="hidden" th:name="id" th:value="${tarefa.id}">
+                                <div class="form-group">
+                                    <label for="titulo">Título:</label>
+                                    <input type="text" class="form-control" id="titulo" th:name="titulo" th:value="${tarefa.titulo}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descricao">Descrição:</label>
+                                    <textarea class="form-control" id="descricao" th:name="descricao" th:text="${tarefa.descricao}"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data">Data:</label>
+                                    <input type="date" class="form-control" id="data" th:name="data" th:value="${tarefa.data}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categoria">Categoria:</label>
+                                    <input type="text" class="form-control" id="categoria" th:name="categoria" th:value="${tarefa.categoria}">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

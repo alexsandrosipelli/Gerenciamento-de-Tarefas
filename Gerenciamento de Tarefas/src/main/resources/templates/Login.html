@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página de Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f8f9fa;
+            }
+            .form-container {
+                max-width: 400px;
+                width: 100%;
+                padding: 20px;
+                background-color: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+            .form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Mensagem de Sucesso -->
+        <div class="container form-container">
+
+            <div th:if="${mensagemSucesso}" class="alert alert-success" role="alert">
+                <span th:text="${mensagemSucesso}"></span>
+            </div>
+
+            <h2>Login</h2>
+            <form th:action="@{/usuario/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Nome de Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+                <div class="text-danger" th:if="${error}" th:text="${error}"></div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <div class="text-center mt-3">
+                <button class="btn btn-secondary btn-block">
+                    <a href="/usuario/novo" class="btn btn-secondary btn-block">Cadastrar</a>
+                </button>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-secondary btn-block">
+                    <a href="/" class="btn btn-secondary btn-block">Esqueceu a senha ? </a>
+                </button>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
