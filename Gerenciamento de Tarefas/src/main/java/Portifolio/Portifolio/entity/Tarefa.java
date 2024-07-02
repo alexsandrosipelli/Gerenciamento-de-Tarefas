@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 /**
@@ -22,10 +24,21 @@ public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Size(min = 1, max = 100, message = "O título deve ter entre 1 e 100 caracteres")
     private String titulo;
+
+    @NotNull
+    @Size(min = 1, max = 500, message = "A descrição deve ter entre 1 e 500 caracteres")
     private String descricao;
+
     private LocalDate data;
+
+    @NotNull
+    @Size(max = 50, message = "A categoria deve ter no máximo 50 caracteres")
     private String categoria;
+
     private boolean concluida;
     @ManyToOne
     @JoinColumn(name = "usuario_id")

@@ -15,4 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TarefaRepositorio extends JpaRepository<Tarefa, Long> {
 
     List<Tarefa> findByUsuarioId(Long idUser);
+
+    List<Tarefa> findByUsuarioIdAndConcluida(Long id, boolean concluida);
+
 }

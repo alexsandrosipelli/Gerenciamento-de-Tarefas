@@ -77,15 +77,12 @@ public class UsuarioController {
             result.rejectValue("confirmPassword", "password.mismatch", "As senhas não correspondem. Por favor, digite novamente.");
             return "NovoUsuario";
         }
+        if (result.hasErrors()) {
+            return "NovoUsuario";
+        }
+
         if (usuarioServiceImpl.findUser(usuarioDTO.getUsername())) {
             result.rejectValue("username", "Username.exists", "O usuário já está cadastrado. Por favor, escolha outro.");
-            return "NovoUsuario";
-        }
-        if (usuarioDTO.getUsername().length() < 3 || usuarioDTO.getUsername().length() > 100) {
-
-            return "NovoUsuario";
-        }
-        if (usuarioDTO.getPassword().length() < 4) {
             return "NovoUsuario";
         }
 

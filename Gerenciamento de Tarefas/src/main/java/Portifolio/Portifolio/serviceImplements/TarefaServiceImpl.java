@@ -41,7 +41,7 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Override
     public List<TarefaDTO> listarTarefasPorUsuario(Long idUser) {
-        List<Tarefa> tarefas = tarefaRepositorio.findByUsuarioId(idUser);
+        List<Tarefa> tarefas = tarefaRepositorio.findByUsuarioIdAndConcluida(idUser, false);
         return tarefas.stream().map(TarefaDTO::toDto).collect(Collectors.toList());
     }
 
@@ -55,6 +55,24 @@ public class TarefaServiceImpl implements TarefaService {
         } else {
             throw new IllegalArgumentException("Tarefa não encontrada com ID: " + id);
         }
+    }
+
+    @Override
+    public void marcarTarefaPendente(Long id) {
+        Optional<Tarefa> optionalTarefa = tarefaRepositorio.findById(id);
+        if (optionalTarefa.isPresent()) {
+            Tarefa tarefa = optionalTarefa.get();
+            tarefa.setConcluida(false);
+            tarefaRepositorio.save(tarefa);
+        } else {
+            throw new IllegalArgumentException("Tarefa não encontrada com ID: " + id);
+        }
+    }
+
+    @Override
+    public List<TarefaDTO> listarTarefasConcluidasPorUsuario(Long idUser) {
+        List<Tarefa> tarefas = tarefaRepositorio.findByUsuarioIdAndConcluida(idUser, true);
+        return tarefas.stream().map(TarefaDTO::toDto).collect(Collectors.toList());
     }
 
     @Override
@@ -92,4 +110,5 @@ public class TarefaServiceImpl implements TarefaService {
             throw new IllegalArgumentException("Tarefa não encontrada com ID: " + id);
         }
     }
+
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Tarefas</title>
+        <title>Tarefas Concluídas</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             .card-body {
@@ -24,12 +24,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Lista de Tarefas</h2>
+                    <h2>Tarefas Concluídas</h2>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a th:href="@{/usuario/tarefa/nova}" class="btn btn-success">Adicionar Nova Tarefa</a>
+                    <a th:href="@{/usuario/tarefa/listar}" class="btn btn-primary">Voltar à Lista de Tarefas</a>
                     <a th:href="@{/usuario/logout}" class="btn btn-danger" onclick="return confirmarLogout();">Deslogar</a>
-                    <a th:href="@{/usuario/tarefa/concluidas}" class="btn btn-danger">Concluídas</a>
+                    <a th:href="@{/usuario/tarefa/nova}" class="btn btn-success">Adicionar Nova Tarefa</a>
 
                 </div>
             </div>
@@ -49,17 +49,10 @@
                                     <p class="card-text" th:text="${tarefa.descricao}"></p>
                                     <p class="card-text"><strong>Data:</strong> <span th:text="${tarefa.data}"></span></p>
                                     <p class="card-text"><strong>Categoria:</strong> <span th:text="${tarefa.categoria}"></span></p>
-
-                                    <!-- Formulário para marcar como concluída -->
-                                    <form th:action="@{/usuario/tarefa/marcarConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-success btn-sm">Concluir</button>
+                                    <form th:action="@{/usuario/tarefa/marcarPendente/{id}(id=${tarefa.id})}" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-success btn-sm">Pendente</button>
                                     </form>
-
-                                    <!-- Link para editar -->
-                                    <a th:href="@{/usuario/tarefa/editar/{id}(id=${tarefa.id})}" class="btn btn-primary btn-sm ml-2">Editar</a>
-
-                                    <!-- Formulário para excluir -->
-                                    <form th:action="@{/usuario/tarefa/excluir/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
+                                    <form th:action="@{/usuario/tarefa/excluirTarefaConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
                                     </form>
                                 </div>

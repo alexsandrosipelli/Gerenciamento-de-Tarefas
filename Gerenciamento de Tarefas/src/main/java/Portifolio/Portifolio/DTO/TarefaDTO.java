@@ -19,19 +19,20 @@ public class TarefaDTO {
     private Long id;
 
     @NotNull
-    @Size(min = 1, message = "O título não pode estar vazio!")
+    @Size(min = 1, max = 100, message = "O título deve ter entre 1 e 100 caracteres")
     private String titulo;
 
+    @NotNull
     @Size(max = 500, message = "A descrição não pode exceder 500 caracteres!")
     private String descricao;
 
     @NotNull
     private LocalDate data;
 
-    @Size(max = 100, message = "A categoria não pode exceder 100 caracteres!")
+    @NotNull
+    @Size(max = 50, message = "A categoria deve ter no máximo 50 caracteres")
     private String categoria;
 
-    @NotNull
     private Long userId;
 
     private boolean concluida;

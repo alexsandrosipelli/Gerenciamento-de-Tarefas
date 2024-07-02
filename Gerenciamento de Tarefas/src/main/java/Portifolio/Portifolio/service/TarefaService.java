@@ -5,6 +5,7 @@
 package Portifolio.Portifolio.service;
 
 import Portifolio.Portifolio.DTO.TarefaDTO;
+import Portifolio.Portifolio.entity.Tarefa;
 import java.util.List;
 
 /**
@@ -19,9 +20,14 @@ public interface TarefaService {
 
     void marcarTarefaConcluida(Long id);
 
+    void marcarTarefaPendente(Long id);
+
     TarefaDTO buscarTarefaPorId(Long id);
 
     void editarTarefa(TarefaDTO tarefaDTO);
 
     void excluirTarefa(Long id);
+
+    List<TarefaDTO> listarTarefasConcluidasPorUsuario(Long idUser);
+
 }
