@@ -5,6 +5,7 @@
 package Portifolio.Portifolio.DTO;
 
 import Portifolio.Portifolio.entity.Usuario;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -17,9 +18,12 @@ public class UsuarioDTO {
     private Long id;
 
     @NotNull
+    @NotBlank
     @Size(min = 3, message = "O nome de usuário deve conter no mínimo 3 caracteres e no maximo 40", max = 40)
     private String username;
 
+    @NotBlank
+    @NotNull
     @Size(min = 4, message = "A senha deve conter no mínimo 4 caracteres!", max = 256)
     private String password;
     private String confirmPassword;

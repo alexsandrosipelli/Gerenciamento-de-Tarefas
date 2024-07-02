@@ -6,6 +6,7 @@ package Portifolio.Portifolio.DTO;
 
 import Portifolio.Portifolio.entity.Tarefa;
 import Portifolio.Portifolio.entity.Usuario;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
@@ -18,10 +19,12 @@ public class TarefaDTO {
 
     private Long id;
 
+    @NotBlank
     @NotNull
     @Size(min = 1, max = 100, message = "O título deve ter entre 1 e 100 caracteres")
     private String titulo;
 
+    @NotBlank
     @NotNull
     @Size(max = 500, message = "A descrição não pode exceder 500 caracteres!")
     private String descricao;
@@ -29,6 +32,7 @@ public class TarefaDTO {
     @NotNull
     private LocalDate data;
 
+    @NotBlank
     @NotNull
     @Size(max = 50, message = "A categoria deve ter no máximo 50 caracteres")
     private String categoria;
