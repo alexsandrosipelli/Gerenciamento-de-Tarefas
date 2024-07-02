@@ -104,14 +104,23 @@ public class TarefaController {
     public String mostrarFormularioEditar(@PathVariable Long id, Model model
     ) {
         TarefaDTO tarefaDTO = tarefaServiceImpl.buscarTarefaPorId(id);
-        System.out.println("AQUI" + tarefaDTO.getDescricao());
         model.addAttribute("tarefa", tarefaDTO);
+
         return "EditarTarefa";
     }
 
     @PostMapping("/editar")
-    public String editarTarefa(@ModelAttribute TarefaDTO tarefaDTO, RedirectAttributes redirectAttributes
-    ) {
+    public String editarTarefa(@ModelAttribute("tarefa") @Valid TarefaDTO tarefaDTO,
+            BindingResult result,
+            RedirectAttributes redirectAttributes,
+            HttpSession session,
+            Model model) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("tarefa", tarefaDTO);
+            return "EditarTarefa";
+        }
+
         tarefaServiceImpl.editarTarefa(tarefaDTO);
         redirectAttributes.addFlashAttribute("mensagemSucesso", "Tarefa editada com sucesso!");
         return "redirect:/usuario/tarefa/listar";

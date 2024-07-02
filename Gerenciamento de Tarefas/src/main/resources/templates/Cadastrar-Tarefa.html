@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label for="titulo">Título</label>
                     <input type="text" class="form-control" id="titulo" name="titulo"
-                           th:field="*{titulo}" required>
+                           th:field="*{titulo}" required placeholder="Digite o titulo">
                     <div th:if="${#fields.hasErrors('titulo')}" class="alert alert-danger" role="alert">
                         <span th:errors="*{titulo}"></span>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao" rows="3"
-                              th:field="*{descricao}" required></textarea>
+                              th:field="*{descricao}" required placeholder="Digite a descrição"></textarea>
                     <div th:if="${#fields.hasErrors('descricao')}" class="alert alert-danger" role="alert">
                         <span th:errors="*{descricao}"></span>
                     </div>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
                     <input type="text" class="form-control" id="categoria" name="categoria"
-                           th:field="*{categoria}" required>
+                           th:field="*{categoria}" required placeholder="Digite a Categoria" >
                     <div th:if="${#fields.hasErrors('categoria')}" class="alert alert-danger" role="alert">
                         <span th:errors="*{categoria}"></span>
                     </div>
