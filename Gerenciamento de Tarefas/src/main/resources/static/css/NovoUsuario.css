@@ -1,0 +1,29 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 3 de jul. de 2024, 17:10:09
+    Author     : alexsandro
+*/
+
+.navbar {
+    background-color: #6c757d !important; /* Cor de fundo do navbar */
+    border-bottom: 3px solid #007bff; /* Cor da borda inferior */
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff; /* Cor do texto */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Cor dos links */
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Cor dos links ao passar o mouse */
+}

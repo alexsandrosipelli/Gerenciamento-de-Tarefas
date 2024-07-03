@@ -1,0 +1,90 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 3 de jul. de 2024, 16:28:44
+    Author     : alexsandro
+*/
+
+body {
+    background-color: #f8f9fa; /* Cor de fundo suave */
+    padding-top: 20px;
+}
+
+.navbar {
+    background-color: #6c757d !important; /* Cor de fundo do navbar */
+    border-bottom: 3px solid #007bff; /* Cor da borda inferior */
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff; /* Cor do texto */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Cor dos links */
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Cor dos links ao passar o mouse */
+}
+.form-container {
+    max-width: 400px; /* Largura máxima do formulário */
+    margin: auto; /* Centraliza o formulário na página */
+    background-color: #fff; /* Fundo do container do formulário */
+    padding: 20px; /* Espaçamento interno do container do formulário */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+h2 {
+    text-align: center; /* Centraliza o título do formulário */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    color: #007bff; /* Cor do título */
+}
+
+label {
+    font-weight: bold; /* Texto do rótulo em negrito */
+    color: #495057; /* Cor do texto do rótulo */
+}
+
+.form-control {
+    margin-bottom: 15px; /* Espaçamento inferior do input */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Cor de fundo do botão */
+    border-color: #007bff; /* Cor da borda do botão */
+    transition: background-color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #0052cc; /* Cor da borda do botão ao passar o mouse */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Cor de fundo do botão secundário */
+    border-color: #6c757d; /* Cor da borda do botão secundário */
+    transition: background-color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Cor de fundo do botão secundário ao passar o mouse */
+    border-color: #545b62; /* Cor da borda do botão secundário ao passar o mouse */
+}
+
+.btn-link {
+    color: #007bff; /* Cor do link */
+    text-decoration: none; /* Sem sublinhado */
+    transition: color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+.btn-link:hover {
+    color: #0056b3; /* Cor do link ao passar o mouse */
+    text-decoration: none; /* Sem sublinhado */
+}

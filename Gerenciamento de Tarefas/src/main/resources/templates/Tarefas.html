@@ -5,31 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Tarefas</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <style>
-            .card-body {
-                border-radius: 10px; /* Cantos arredondados para uma aparência mais moderna */
-                padding: 2rem; /* Espaçamento interno aumentado para conforto visual */
-                background: linear-gradient(to bottom right, #3498db, #9b59b6); /* Gradiente de azul para roxo */
-                color: #ffffff; /* Texto branco para contraste */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar o cartão */
-            }
-            .container {
-                padding: 3rem; /* Espaçamento interno aumentado para dar mais destaque aos conteúdos */
-                background-color: #2ecc71; /* Verde vibrante */
-                color: #ffffff; /* Texto branco para contraste */
-            }
-        </style>
+        <link rel="stylesheet" href="/css/listaTarefas.css">
+
         <script>
+
             function confirmarExclusao() {
             return confirm("Tem certeza de que deseja excluir esta tarefa?");
             }
 
             function confirmarLogout() {
-            return confirm("Tem certeza de que deseja deslogar?");
+            return confirm("Tem certeza de que deseja Sair?");
             }
         </script>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Gerenciador de Tarefas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/usuario/logout}"   onclick="return confirmarLogout();">Sair</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -37,12 +40,11 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <a th:href="@{/usuario/tarefa/nova}" class="btn btn-success">Adicionar Nova Tarefa</a>
-                    <a th:href="@{/usuario/logout}" class="btn btn-danger" onclick="return confirmarLogout();">Deslogar</a>
                     <a th:href="@{/usuario/tarefa/concluidas}" class="btn btn-danger">Concluídas</a>
 
                 </div>
             </div>
-            <!-- Mensagem de Sucesso -->
+
             <div th:if="${mensagemSucesso}" class="alert alert-success mt-3" role="alert">
                 <span th:text="${mensagemSucesso}"></span>
             </div>
@@ -59,15 +61,15 @@
                                     <p class="card-text"><strong>Data:</strong> <span th:text="${tarefa.data}"></span></p>
                                     <p class="card-text"><strong>Categoria:</strong> <span th:text="${tarefa.categoria}"></span></p>
 
-                                    <!-- Formulário para marcar como concluída -->
+
                                     <form th:action="@{/usuario/tarefa/marcarConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-success btn-sm">Concluir</button>
                                     </form>
 
-                                    <!-- Link para editar -->
+
                                     <a th:href="@{/usuario/tarefa/editar/{id}(id=${tarefa.id})}" class="btn btn-primary btn-sm ml-2">Editar</a>
 
-                                    <!-- Formulário para excluir -->
+
                                     <form th:action="@{/usuario/tarefa/excluir/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
                                     </form>

@@ -5,29 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro de Usuário</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f8f9fa;
-            }
-            .form-container {
-                max-width: 400px;
-                width: 100%;
-                padding: 20px;
-                background-color: white;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                border-radius: 5px;
-            }
-            .form-container h2 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-        </style>
+        <link rel="stylesheet" href="/css/NovoUsuario.css">
+
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Gerenciador de Tarefas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/usuario/logout}"   onclick="return confirmarLogout();">Sair</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
         <div class="container form-container">
             <h2>Cadastro de Usuário</h2>
             <form th:action="@{/usuario/novo}" th:object="${usuario}" method="post">

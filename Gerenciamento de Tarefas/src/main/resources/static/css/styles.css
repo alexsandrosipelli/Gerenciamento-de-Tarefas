@@ -1,0 +1,48 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+.navbar {
+    background-color: #6c757d !important; /* Cor de fundo do navbar */
+    border-bottom: 3px solid #007bff; /* Cor da borda inferior */
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff; /* Cor do texto */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Cor dos links */
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Cor dos links ao passar o mouse */
+}
+.jumbotron {
+    background-color: #f8f9fa;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+}
+
+.jumbotron p {
+    font-size: 1.25rem;
+}
+
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card-text {
+    font-size: 2rem;
+}
+
+

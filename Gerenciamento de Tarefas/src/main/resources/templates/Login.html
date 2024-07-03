@@ -5,34 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página de Login</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f8f9fa;
-            }
-            .form-container {
-                max-width: 400px;
-                width: 100%;
-                padding: 20px;
-                background-color: white;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                border-radius: 5px;
-            }
-            .form-container h2 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-        </style>
+        <link rel="stylesheet" href="/css/stylesLogin.css">
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Gerenciador de Tarefas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+
+                </ul>
+            </div>
+        </nav>
+
         <!-- Mensagem de Sucesso -->
         <div class="container form-container">
-
-            <div th:if="${mensagemSucesso}" class="alert alert-success" role="alert">
+            <div th:if="${mensagemSucesso}" class="alert alert-success text-center" role="alert">
                 <span th:text="${mensagemSucesso}"></span>
             </div>
 
@@ -40,23 +31,25 @@
             <form th:action="@{/usuario/login}" method="post">
                 <div class="form-group">
                     <label for="username">Nome de Usuário</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+                    <input type="text" class="form-control" id="username" name="username"
+                           placeholder="Digite seu nome de usuário" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Digite sua senha" required>
                 </div>
-                <div class="text-danger" th:if="${error}" th:text="${error}"></div>
+                <div class="text-danger text-center mb-3" th:if="${error}" th:text="${error}"></div>
                 <button type="submit" class="btn btn-primary btn-block">Entrar</button>
             </form>
             <div class="text-center mt-3">
                 <button class="btn btn-secondary btn-block">
-                    <a href="/usuario/novo" class="btn btn-secondary btn-block">Cadastrar</a>
+                    <a href="/usuario/novo" class="text-white">Cadastrar</a>
                 </button>
             </div>
             <div class="text-center mt-3">
-                <button class="btn btn-secondary btn-block">
-                    <a href="/" class="btn btn-secondary btn-block">Esqueceu a senha ? </a>
+                <button class="btn btn-link btn-block">
+                    <a href="/" class="text-decoration-none">Esqueceu a senha?</a>
                 </button>
             </div>
         </div>
