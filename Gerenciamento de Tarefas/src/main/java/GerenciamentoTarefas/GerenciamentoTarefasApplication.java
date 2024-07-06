@@ -1,4 +1,4 @@
-package Portifolio.Portifolio;
+package GerenciamentoTarefas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-public class PortifolioApplication {
+public class GerenciamentoTarefasApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PortifolioApplication.class, args);
+        SpringApplication.run(GerenciamentoTarefasApplication.class, args);
     }
 
     @Bean

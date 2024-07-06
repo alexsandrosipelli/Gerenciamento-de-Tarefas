@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Portifolio.Portifolio.serviceImplements;
+package GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements;
 
-import Portifolio.Portifolio.DTO.UsuarioDTO;
-import Portifolio.Portifolio.entity.Usuario;
-import Portifolio.Portifolio.repositorio.UsuarioRepositorio;
-import Portifolio.Portifolio.service.UsuarioService;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.UsuarioDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.repositorio.UsuarioRepositorio;
+import GerenciamentoTarefas.GerenciamentoTarefas.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;

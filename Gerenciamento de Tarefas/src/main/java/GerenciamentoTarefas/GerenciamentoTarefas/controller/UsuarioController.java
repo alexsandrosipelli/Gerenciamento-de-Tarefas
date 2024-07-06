@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Portifolio.Portifolio.controller;
+package GerenciamentoTarefas.GerenciamentoTarefas.controller;
 
-import Portifolio.Portifolio.DTO.TarefaDTO;
-import Portifolio.Portifolio.DTO.UsuarioDTO;
-import Portifolio.Portifolio.entity.Usuario;
-import Portifolio.Portifolio.serviceImplements.TarefaServiceImpl;
-import Portifolio.Portifolio.serviceImplements.UsuarioServiceImpl;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.TarefaDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.UsuarioDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements.TarefaServiceImpl;
+import GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements.UsuarioServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -67,7 +67,7 @@ public class UsuarioController {
     @GetMapping("/novo")
     public String mostrarFormularioNovoUsuario(Model model) {
         model.addAttribute("usuario", new UsuarioDTO());
-        return "NovoUsuario";
+        return "Novo-Usuario";
     }
 
     @PostMapping("/novo")
@@ -75,15 +75,15 @@ public class UsuarioController {
 
         if (!usuarioDTO.getPassword().equals(usuarioDTO.getConfirmPassword())) {
             result.rejectValue("confirmPassword", "password.mismatch", "As senhas não correspondem. Por favor, digite novamente.");
-            return "NovoUsuario";
+            return "Novo-Usuario";
         }
         if (result.hasErrors()) {
-            return "NovoUsuario";
+            return "Novo-Usuario";
         }
 
         if (usuarioServiceImpl.findUser(usuarioDTO.getUsername())) {
             result.rejectValue("username", "Username.exists", "O usuário já está cadastrado. Por favor, escolha outro.");
-            return "NovoUsuario";
+            return "Novo-Usuario";
         }
 
         usuarioServiceImpl.salvarUsuario(usuarioDTO);

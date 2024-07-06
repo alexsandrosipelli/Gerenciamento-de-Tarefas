@@ -11,7 +11,7 @@
 	<groupId>Portifolio</groupId>
 	<artifactId>Portifolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Portifolio</name>
+	<name>Gerenciamento-de-Tarefas</name>
 	<description>Realizando com Spring boot </description>
 	<url/>
 	<licenses>

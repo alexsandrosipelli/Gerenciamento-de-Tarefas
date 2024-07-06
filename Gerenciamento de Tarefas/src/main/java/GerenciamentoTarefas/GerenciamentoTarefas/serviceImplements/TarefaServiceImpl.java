@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Portifolio.Portifolio.serviceImplements;
+package GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements;
 
-import Portifolio.Portifolio.DTO.TarefaDTO;
-import Portifolio.Portifolio.entity.Tarefa;
-import Portifolio.Portifolio.entity.Usuario;
-import Portifolio.Portifolio.repositorio.TarefaRepositorio;
-import Portifolio.Portifolio.service.TarefaService;
-import Portifolio.Portifolio.service.UsuarioService;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.TarefaDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Tarefa;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.repositorio.TarefaRepositorio;
+import GerenciamentoTarefas.GerenciamentoTarefas.service.TarefaService;
+import GerenciamentoTarefas.GerenciamentoTarefas.service.UsuarioService;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -77,13 +77,9 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Override
     public TarefaDTO buscarTarefaPorId(Long id) {
-        Optional<Tarefa> optionalTarefa = tarefaRepositorio.findById(id);
-        if (optionalTarefa.isPresent()) {
-            Tarefa tarefa = optionalTarefa.get();
-            return TarefaDTO.toDto(tarefa);
-        } else {
-            throw new IllegalArgumentException("Tarefa não encontrada com ID: " + id);
-        }
+        Tarefa tarefa = tarefaRepositorio.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Tarefa não encontrada com ID: " + id));
+        return TarefaDTO.toDto(tarefa);
     }
 
     @Override

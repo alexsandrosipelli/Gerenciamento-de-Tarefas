@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Portifolio.Portifolio.DTO;
+package GerenciamentoTarefas.GerenciamentoTarefas.DTO;
 
-import Portifolio.Portifolio.entity.Tarefa;
-import Portifolio.Portifolio.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Tarefa;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

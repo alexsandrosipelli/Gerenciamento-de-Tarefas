@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Portifolio.Portifolio.service;
+package GerenciamentoTarefas.GerenciamentoTarefas.service;
 
-import Portifolio.Portifolio.DTO.TarefaDTO;
-import Portifolio.Portifolio.entity.Tarefa;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.TarefaDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Tarefa;
 import java.util.List;
 
 /**

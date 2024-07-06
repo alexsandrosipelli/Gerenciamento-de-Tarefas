@@ -57,15 +57,19 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title" th:text="${tarefa.titulo}"></h5>
-                                    <p class="card-text" th:text="${tarefa.descricao}"></p>
+                                    <p class="card-descricao" th:text="${tarefa.descricao}"></p>
                                     <p class="card-text"><strong>Data:</strong> <span th:text="${tarefa.data}"></span></p>
                                     <p class="card-text"><strong>Categoria:</strong> <span th:text="${tarefa.categoria}"></span></p>
                                     <form th:action="@{/usuario/tarefa/marcarPendente/{id}(id=${tarefa.id})}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-success btn-sm">Pendente</button>
                                     </form>
+                                    <a th:href="@{/usuario/tarefa/editar/concluida/{id}(id=${tarefa.id})}"
+                                       class="btn btn-primary btn-sm ml-2">Editar</a>
                                     <form th:action="@{/usuario/tarefa/excluirTarefaConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
                                     </form>
+                                    <a th:href="@{/usuario/tarefa/apresentar/{id}(id=${tarefa.id})}" class="btn btn-info btn-sm ml-2">Ver Tarefa</a>
+
                                 </div>
                             </div>
                         </div>

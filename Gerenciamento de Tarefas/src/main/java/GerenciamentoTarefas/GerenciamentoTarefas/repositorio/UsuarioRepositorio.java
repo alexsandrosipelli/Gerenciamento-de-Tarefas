@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Portifolio.Portifolio.repositorio;
+package GerenciamentoTarefas.GerenciamentoTarefas.repositorio;
 
-import Portifolio.Portifolio.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

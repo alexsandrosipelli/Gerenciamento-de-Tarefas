@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Portifolio.Portifolio.controller;
+package GerenciamentoTarefas.GerenciamentoTarefas.controller;
 
-import Portifolio.Portifolio.DTO.TarefaDTO;
-import Portifolio.Portifolio.entity.Tarefa;
-import Portifolio.Portifolio.entity.Usuario;
-import Portifolio.Portifolio.service.TarefaService;
-import Portifolio.Portifolio.service.UsuarioService;
-import Portifolio.Portifolio.serviceImplements.TarefaServiceImpl;
-import Portifolio.Portifolio.serviceImplements.UsuarioServiceImpl;
+import GerenciamentoTarefas.GerenciamentoTarefas.DTO.TarefaDTO;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Tarefa;
+import GerenciamentoTarefas.GerenciamentoTarefas.entity.Usuario;
+import GerenciamentoTarefas.GerenciamentoTarefas.service.TarefaService;
+import GerenciamentoTarefas.GerenciamentoTarefas.service.UsuarioService;
+import GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements.TarefaServiceImpl;
+import GerenciamentoTarefas.GerenciamentoTarefas.serviceImplements.UsuarioServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import java.time.LocalDate;
@@ -85,7 +85,7 @@ public class TarefaController {
         if (usuarioLogado != null) {
             List<TarefaDTO> tarefas = tarefaServiceImpl.listarTarefasPorUsuario(usuarioLogado.getId());
             model.addAttribute("tarefas", tarefas);
-            return "Tarefas";
+            return "Listar-Tarefas";
         } else {
             return "redirect:/usuario/login";
         }
@@ -99,14 +99,20 @@ public class TarefaController {
         return "redirect:/usuario/tarefa/listar";
     }
 
-    // Método para editar uma tarefa
+    @GetMapping("/apresentar/{id}")
+    public String apresentarTarefa(@PathVariable Long id, Model model) {
+        TarefaDTO tarefaDTO = tarefaServiceImpl.buscarTarefaPorId(id);
+        model.addAttribute("tarefa", tarefaDTO);
+        return "apresentar-tarefa";
+    }
+
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable Long id, Model model
     ) {
         TarefaDTO tarefaDTO = tarefaServiceImpl.buscarTarefaPorId(id);
         model.addAttribute("tarefa", tarefaDTO);
 
-        return "EditarTarefa";
+        return "Editar-Tarefa";
     }
 
     @PostMapping("/editar")
@@ -118,12 +124,38 @@ public class TarefaController {
 
         if (result.hasErrors()) {
             model.addAttribute("tarefa", tarefaDTO);
-            return "EditarTarefa";
+            return "Editar-Tarefa";
         }
 
         tarefaServiceImpl.editarTarefa(tarefaDTO);
         redirectAttributes.addFlashAttribute("mensagemSucesso", "Tarefa editada com sucesso!");
         return "redirect:/usuario/tarefa/listar";
+    }
+
+    @GetMapping("/editar/concluida{id}")
+    public String mostrarFormularioEditarConcluida(@PathVariable Long id, Model model
+    ) {
+        TarefaDTO tarefaDTO = tarefaServiceImpl.buscarTarefaPorId(id);
+        model.addAttribute("tarefa", tarefaDTO);
+
+        return "Editar-Tarefa";
+    }
+
+    @PostMapping("/editar/concluida")
+    public String editarTarefaConcluida(@ModelAttribute("tarefa") @Valid TarefaDTO tarefaDTO,
+            BindingResult result,
+            RedirectAttributes redirectAttributes,
+            HttpSession session,
+            Model model) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("tarefa", tarefaDTO);
+            return "Editar-Tarefa";
+        }
+
+        tarefaServiceImpl.editarTarefa(tarefaDTO);
+        redirectAttributes.addFlashAttribute("mensagemSucesso", "Tarefa editada com sucesso!");
+        return "redirect:/usuario/tarefa/concluidas";
     }
 
     @PostMapping("/excluir/{id}")

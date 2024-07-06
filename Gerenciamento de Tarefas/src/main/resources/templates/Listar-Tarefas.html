@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="/css/listaTarefas.css">
 
         <script>
-
             function confirmarExclusao() {
             return confirm("Tem certeza de que deseja excluir esta tarefa?");
             }
@@ -21,15 +20,15 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Gerenciador de Tarefas</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/usuario/logout}"   onclick="return confirmarLogout();">Sair</a>
+                        <a class="nav-link" th:href="@{/usuario/logout}" onclick="return confirmarLogout();">Sair</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
@@ -41,14 +40,12 @@
                 <div class="col-md-6 text-right">
                     <a th:href="@{/usuario/tarefa/nova}" class="btn btn-success">Adicionar Nova Tarefa</a>
                     <a th:href="@{/usuario/tarefa/concluidas}" class="btn btn-danger">Concluídas</a>
-
                 </div>
             </div>
 
             <div th:if="${mensagemSucesso}" class="alert alert-success mt-3" role="alert">
                 <span th:text="${mensagemSucesso}"></span>
             </div>
-
 
             <div class="row mt-3">
                 <div class="col-md-12">
@@ -57,22 +54,24 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title" th:text="${tarefa.titulo}"></h5>
-                                    <p class="card-text" th:text="${tarefa.descricao}"></p>
+                                    <p class="card-descricao" th:text="${tarefa.descricao}"></p>
                                     <p class="card-text"><strong>Data:</strong> <span th:text="${tarefa.data}"></span></p>
                                     <p class="card-text"><strong>Categoria:</strong> <span th:text="${tarefa.categoria}"></span></p>
 
-
-                                    <form th:action="@{/usuario/tarefa/marcarConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline">
+                                    <form th:action="@{/usuario/tarefa/marcarConcluida/{id}(id=${tarefa.id})}" method="post"
+                                          class="d-inline">
                                         <button type="submit" class="btn btn-success btn-sm">Concluir</button>
                                     </form>
 
+                                    <a th:href="@{/usuario/tarefa/editar/{id}(id=${tarefa.id})}"
+                                       class="btn btn-primary btn-sm ml-2">Editar</a>
 
-                                    <a th:href="@{/usuario/tarefa/editar/{id}(id=${tarefa.id})}" class="btn btn-primary btn-sm ml-2">Editar</a>
-
-
-                                    <form th:action="@{/usuario/tarefa/excluir/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
+                                    <form th:action="@{/usuario/tarefa/excluir/{id}(id=${tarefa.id})}" method="post"
+                                          class="d-inline" onsubmit="return confirmarExclusao();">
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
                                     </form>
+
+                                    <a th:href="@{/usuario/tarefa/apresentar/{id}(id=${tarefa.id})}" class="btn btn-info btn-sm ml-2">Ver Tarefa</a>
                                 </div>
                             </div>
                         </div>
