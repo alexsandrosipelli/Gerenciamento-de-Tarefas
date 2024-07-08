@@ -7,26 +7,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : alexsandro
 */
 
-/* Estilo para a página de Apresentar Tarefa */
+ 
 .navbar {
-    background-color: #6c757d !important; /* Cor de fundo do navbar */
-    border-bottom: 3px solid #007bff; /* Cor da borda inferior */
+    background-color: #6c757d !important;  
+    border-bottom: 3px solid #007bff;  
 }
 
 .navbar-brand {
     font-size: 2rem;
     font-weight: bold;
-    color: #ffffff; /* Cor do texto */
+    color: #ffffff;  
 }
 
 .navbar-nav .nav-link {
-    color: #ffffff; /* Cor dos links */
+    color: #ffffff; 
     font-size: 1.2rem;
     margin-right: 15px;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff; /* Cor dos links ao passar o mouse */
+    color: #007bff;  
 }
 
 body {
@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -63,9 +63,9 @@ body {
 
 .btn-primary {
     font-size: 1.6rem;
-    
+
 }
 .btn {
     font-size: 1.6rem;
-    padding: 0.5rem 1rem; /* Ajusta o padding para uniformizar o tamanho dos botões */
+    padding: 0.5rem 1rem;
 }

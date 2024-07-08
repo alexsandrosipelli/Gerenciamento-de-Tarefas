@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Tarefas Concluídas</h2>
+                    <h1>Tarefas Concluídas</h1>
                 </div>
                 <div class="col-md-6 text-right">
                     <a th:href="@{/usuario/tarefa/listar}" class="btn btn-primary">Voltar à Lista de Tarefas</a>
@@ -61,7 +61,7 @@
                                     <p class="card-text"><strong>Data:</strong> <span th:text="${tarefa.data}"></span></p>
                                     <p class="card-text"><strong>Categoria:</strong> <span th:text="${tarefa.categoria}"></span></p>
                                     <form th:action="@{/usuario/tarefa/marcarPendente/{id}(id=${tarefa.id})}" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-success btn-sm">Pendente</button>
+                                        <button type="submit" class="btn btn-success btn-sm"> Marcar Pendente</button>
                                     </form>
                                     <a th:href="@{/usuario/tarefa/editar/concluida/{id}(id=${tarefa.id})}"
                                        class="btn btn-primary btn-sm ml-2">Editar</a>
