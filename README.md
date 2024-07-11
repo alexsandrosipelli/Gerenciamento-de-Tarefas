@@ -1,4 +1,4 @@
-<h1>**Projeto de Gerenciamento de Tarefas**</h1>
+<h1>Projeto de Gerenciamento de Tarefas</h1>
  ![image](https://github.com/alexsandrosipelli/Projetos-2024/assets/112717598/3ff0cd27-be13-486a-b1f1-24bf30024cda)
 
 
