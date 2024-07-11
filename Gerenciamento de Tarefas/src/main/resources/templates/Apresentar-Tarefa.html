@@ -8,11 +8,11 @@
         <link rel="stylesheet" href="/css/ApresentarTarefa.css">
         <script>
             function confirmarExclusao() {
-            return confirm("Tem certeza de que deseja excluir esta tarefa?");
+                return confirm("Tem certeza de que deseja excluir esta tarefa?");
             }
 
             function confirmarLogout() {
-            return confirm("Tem certeza de que deseja Sair?");
+                return confirm("Tem certeza de que deseja Sair?");
             }
         </script>
     </head>
@@ -45,10 +45,7 @@
                         </div>
                     </div>
                     <a th:href="@{/usuario/tarefa/listar}" class="btn btn-primary btn-sm ml-2">Voltar</a>
-                    <form th:action="@{/usuario/tarefa/marcarConcluida/{id}(id=${tarefa.id})}" method="post"
-                          class="d-inline">
-                        <button type="submit" class="btn btn-success btn-sm">Concluir</button>
-                    </form>
+
 
                     <a th:href="@{/usuario/tarefa/editar/{id}(id=${tarefa.id})}"
                        class="btn btn-primary btn-sm ml-2">Editar</a>

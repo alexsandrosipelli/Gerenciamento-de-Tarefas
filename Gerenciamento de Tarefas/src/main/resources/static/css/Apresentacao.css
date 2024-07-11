@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: auto;
     padding: 20px;
 }
@@ -42,17 +42,35 @@ header p {
 }
 
 header .social-links a {
-
-    color: #007bff;
+    color: #333; /* Cor padrão dos links */
     margin: 0 10px;
     font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+header .social-links a i {
+    margin-right: 5px;
+    font-size: 1.5rem;
+}
+
+/* Cores específicas para cada ícone */
+header .social-links a .github-icon {
+    color: #333; /* Cor do GitHub */
+}
+
+header .social-links a .linkedin-icon {
+    color: #0077b5; /* Cor do LinkedIn */
+}
+
+header .social-links a .email-icon {
+    color: #d44638; /* Cor do Email */
 }
 
 header .social-links a:hover {
-
     text-decoration: underline;
 }
-
 #projeto ul, #apresentacao ul {
     font-size: 1.2rem;
 }
@@ -125,8 +143,8 @@ footer {
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid #007bff;
