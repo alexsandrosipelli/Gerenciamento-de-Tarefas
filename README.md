@@ -1,5 +1,6 @@
 <h1>Projeto de Gerenciamento de Tarefas</h1>
- ![image](https://github.com/alexsandrosipelli/Projetos-2024/assets/112717598/3ff0cd27-be13-486a-b1f1-24bf30024cda)
+
+![image](https://github.com/alexsandrosipelli/Projetos-2024/assets/112717598/19c69379-f086-4a3f-8aae-abc8926967ac)
 
 
 **Descrição**
