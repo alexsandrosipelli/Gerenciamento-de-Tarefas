@@ -1,11 +1,11 @@
-Projeto de Gerenciamento de Tarefas
+**Projeto de Gerenciamento de Tarefas**
  ![image](https://github.com/alexsandrosipelli/Projetos-2024/assets/112717598/3ff0cd27-be13-486a-b1f1-24bf30024cda)
 
 
-Descrição
+**Descrição**
 Este é um projeto de gerenciamento de tarefas desenvolvido com Spring Boot, Java, Thymeleaf, H2, HTML e CSS. O objetivo é criar uma aplicação web que permita aos usuários gerenciar suas tarefas de forma eficiente, utilizando uma interface amigável e intuitiva.
 
-Tecnologias Utilizadas
+**Tecnologias Utilizadas**
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="30" alt="java logo"  />
   <img width="12" />
@@ -19,26 +19,28 @@ Tecnologias Utilizadas
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" alt="css3 logo"  />
 </div>
-Funcionalidades
-Adicionar Tarefas: Permite adicionar novas tarefas com título, descrição, data de vencimento e prioridade.
-Listar Tarefas: Exibe uma lista de todas as tarefas cadastradas, com opções de filtro e ordenação.
+
+**Funcionalidades**
+Adicionar Tarefas: Permite adicionar novas tarefas com título, descrição, data de vencimento.
+Listar Tarefas: Exibe uma lista de todas as tarefas cadastradas, com opções de filtro basicos.
 Editar Tarefas: Possibilidade de editar as informações de uma tarefa existente.
 Excluir Tarefas: Remove uma tarefa da lista.
 Marcar como Concluída: Permite marcar uma tarefa como concluída.
 Autenticação de Usuários: Sistema de login e registro de usuários para gerenciar suas próprias tarefas.
-Instalação e Execução
+
+**Instalação e Execução**
 Siga os passos abaixo para executar o projeto localmente:
 
 Clone o repositório:
 
 bash
 Copiar código
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/alexsandrosipelli/Projetos-2024.git)
 Navegue até o diretório do projeto:
 
 bash
 Copiar código
-cd seu-repositorio
+cd Projetos-2024
 Compile e execute o projeto:
 
 bash
