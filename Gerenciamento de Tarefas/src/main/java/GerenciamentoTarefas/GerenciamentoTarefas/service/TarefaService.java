@@ -30,4 +30,5 @@ public interface TarefaService {
 
     List<TarefaDTO> listarTarefasConcluidasPorUsuario(Long idUser);
 
+    List<TarefaDTO> buscarTarefasPorTitulo(String titulo, Long usuarioId);
 }

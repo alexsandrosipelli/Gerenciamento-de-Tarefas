@@ -79,13 +79,31 @@ public class TarefaController {
         }
     }
 
-    @GetMapping("/listar")
-    public String listar(Model model, HttpSession session) {
-        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+     @GetMapping("/listar")
+    public String listar(@RequestParam(value = "query", required = false) String query, Model model, HttpSession session) {
+        Usuario usuarioLogado = getUsuarioLogado(session);
         if (usuarioLogado != null) {
-            List<TarefaDTO> tarefas = tarefaServiceImpl.listarTarefasPorUsuario(usuarioLogado.getId());
+            List<TarefaDTO> tarefas;
+            if (query != null && !query.isEmpty()) {
+                tarefas = tarefaServiceImpl.buscarTarefasPorTitulo(query, usuarioLogado.getId());
+            } else {
+                tarefas = tarefaServiceImpl.listarTarefasPorUsuario(usuarioLogado.getId());
+            }
             model.addAttribute("tarefas", tarefas);
+            model.addAttribute("query", query);
             return "Listar-Tarefas";
+        } else {
+            return "redirect:/usuario/login";
+        }
+    }
+
+    @GetMapping("/Pesquisar")
+    public String buscarTarefas(@RequestParam("query") String query, Model model, HttpSession session) {
+        Usuario usuarioLogado = getUsuarioLogado(session);
+        if (usuarioLogado != null) {
+            List<TarefaDTO> tarefas = tarefaServiceImpl.buscarTarefasPorTitulo(query, usuarioLogado.getId());
+            model.addAttribute("tarefas", tarefas);
+            return "Listar-Tarefas";  
         } else {
             return "redirect:/usuario/login";
         }
@@ -132,7 +150,7 @@ public class TarefaController {
         return "redirect:/usuario/tarefa/listar";
     }
 
-    @GetMapping("/editar/concluida{id}")
+    @GetMapping("/editarConcluida/{id}")
     public String mostrarFormularioEditarConcluida(@PathVariable Long id, Model model
     ) {
         TarefaDTO tarefaDTO = tarefaServiceImpl.buscarTarefaPorId(id);

@@ -1,4 +1,8 @@
-/* Estilo 3: Elegante e Sofisticado */
+.form-inline{
+    padding-left: 100px;
+
+
+}
 
 body {
     background-color: #e9ecef;
@@ -6,24 +10,24 @@ body {
 }
 
 .navbar {
-    background-color: #6c757d !important; /* Cor de fundo do navbar */
-    border-bottom: 3px solid #007bff; /* Cor da borda inferior */
+    background-color: #6c757d !important;
+    border-bottom: 3px solid #007bff;
 }
 
 .navbar-brand {
     font-size: 2rem;
     font-weight: bold;
-    color: #ffffff; /* Cor do texto */
+    color: #ffffff;
 }
 
 .navbar-nav .nav-link {
-    color: #ffffff; /* Cor dos links */
+    color: #ffffff;
     font-size: 1.2rem;
     margin-right: 15px;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff; /* Cor dos links ao passar o mouse */
+    color: #007bff;
 }
 
 .container {

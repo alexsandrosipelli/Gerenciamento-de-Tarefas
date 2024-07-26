@@ -9,11 +9,11 @@
 
         <script>
             function confirmarExclusao() {
-            return confirm("Tem certeza de que deseja excluir esta tarefa?");
+                return confirm("Tem certeza de que deseja excluir esta tarefa?");
             }
 
             function confirmarLogout() {
-            return confirm("Tem certeza de que deseja Sair?");
+                return confirm("Tem certeza de que deseja Sair?");
             }
         </script>
     </head>
@@ -24,19 +24,29 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <form class="form-inline my-2 my-lg-0" th:action="@{/usuario/tarefa/listar}" method="get">
+                <input class="form-control mr-sm-2" type="text" name="query" th:value="${query}" placeholder="Pesquisar Tarefas">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/usuario/logout}" onclick="return confirmarLogout();">Sair</a>
                     </li>
                 </ul>
+
+
+
             </div>
+
         </nav>
         <div class="container">
             <div class="titulo">
                 <div class="col-md-8">
                     <h1>Lista de Tarefas</h1>
                 </div>
+
                 <div class="col-md-4 text-right">
                     <a th:href="@{/usuario/tarefa/nova}" class="btn btn-success">Adicionar Nova Tarefa</a>
                     <a th:href="@{/usuario/tarefa/concluidas}" class="btn btn-danger">Concluídas</a>

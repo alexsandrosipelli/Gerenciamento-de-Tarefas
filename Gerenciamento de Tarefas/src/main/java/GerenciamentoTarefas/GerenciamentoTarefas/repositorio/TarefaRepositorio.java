@@ -18,4 +18,6 @@ public interface TarefaRepositorio extends JpaRepository<Tarefa, Long> {
 
     List<Tarefa> findByUsuarioIdAndConcluida(Long id, boolean concluida);
 
+    List<Tarefa> findByTituloContainingAndUsuarioId(String titulo, Long usuarioId);
+
 }

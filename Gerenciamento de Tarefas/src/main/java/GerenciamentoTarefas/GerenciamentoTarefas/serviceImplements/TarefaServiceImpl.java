@@ -107,4 +107,20 @@ public class TarefaServiceImpl implements TarefaService {
         }
     }
 
+    @Override
+    public List<TarefaDTO> buscarTarefasPorTitulo(String titulo, Long usuarioId) {
+        List<Tarefa> tarefas = tarefaRepositorio.findByTituloContainingAndUsuarioId(titulo, usuarioId);
+        return tarefas.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    private TarefaDTO convertToDTO(Tarefa tarefa) {
+        TarefaDTO tarefaDTO = new TarefaDTO();
+        tarefaDTO.setId(tarefa.getId());
+        tarefaDTO.setTitulo(tarefa.getTitulo());
+        tarefaDTO.setDescricao(tarefa.getDescricao());
+        tarefaDTO.setData(tarefa.getData());
+        tarefaDTO.setConcluida(tarefa.isConcluida());
+        return tarefaDTO;
+    }
+
 }

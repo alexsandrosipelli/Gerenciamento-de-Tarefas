@@ -9,11 +9,11 @@
 
         <script>
             function confirmarExclusao() {
-            return confirm("Tem certeza de que deseja excluir esta tarefa?");
+                return confirm("Tem certeza de que deseja excluir esta tarefa?");
             }
 
             function confirmarLogout() {
-            return confirm("Tem certeza de que deseja Sair?");
+                return confirm("Tem certeza de que deseja Sair?");
             }
         </script>
     </head>
@@ -23,6 +23,10 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/usuario/tarefa/listar}" method="get">
+                <input class="form-control mr-sm-2" type="text" name="query" th:value="${query}" placeholder="Pesquisar Tarefas">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -30,7 +34,9 @@
                     </li>
 
                 </ul>
+
             </div>
+
         </nav>
 
         <div class="container">
@@ -63,7 +69,7 @@
                                     <form th:action="@{/usuario/tarefa/marcarPendente/{id}(id=${tarefa.id})}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-success btn-sm"> Marcar Pendente</button>
                                     </form>
-                                    <a th:href="@{/usuario/tarefa/editar/concluida/{id}(id=${tarefa.id})}"
+                                    <a th:href="@{/usuario/tarefa/editarConcluida/{id}(id=${tarefa.id})}"
                                        class="btn btn-primary btn-sm ml-2">Editar</a>
                                     <form th:action="@{/usuario/tarefa/excluirTarefaConcluida/{id}(id=${tarefa.id})}" method="post" class="d-inline" onsubmit="return confirmarExclusao();">
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
